@@ -12,7 +12,7 @@ export function extendTheme(overrides, baseTheme) {
   }
 
   function customizer(source, override, key, object) {
-    if (isFunction(source) && object.hasOwnProperty(key)) {
+    if (isFunction(source) && Object.prototype.hasOwnProperty.call(object, key)) {
       return function () {
         var sourceValue = source(...arguments);
         var overrideValue = isFunction(override) ? override(...arguments) : override;

@@ -20,7 +20,7 @@ function extendTheme(overrides, baseTheme) {
   }
 
   function customizer(source, override, key, object) {
-    if ((0, _utils.isFunction)(source) && object.hasOwnProperty(key)) {
+    if ((0, _utils.isFunction)(source) && Object.prototype.hasOwnProperty.call(object, key)) {
       return function () {
         var sourceValue = source.apply(void 0, arguments);
         var overrideValue = (0, _utils.isFunction)(override) ? override.apply(void 0, arguments) : override;
