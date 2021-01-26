@@ -12,13 +12,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 /**
  * Function to override or customize the Chakra UI theme conveniently
  * @param overrides - Your custom theme object overrides
- * @param baseTheme - theme to customize
  */
-function extendTheme(overrides, baseTheme) {
-  if (baseTheme === void 0) {
-    baseTheme = _theme["default"];
-  }
-
+function extendTheme(overrides) {
   function customizer(source, override, key, object) {
     if ((0, _utils.isFunction)(source) && Object.prototype.hasOwnProperty.call(object, key)) {
       return function () {
@@ -32,6 +27,6 @@ function extendTheme(overrides, baseTheme) {
     return undefined;
   }
 
-  return (0, _utils.mergeWith)({}, baseTheme, overrides, customizer);
+  return (0, _utils.mergeWith)({}, _theme["default"], overrides, customizer);
 }
 //# sourceMappingURL=extend-theme.js.map

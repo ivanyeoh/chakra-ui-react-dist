@@ -4,13 +4,8 @@ import { isFunction, mergeWith } from "@chakra-ui/utils";
 /**
  * Function to override or customize the Chakra UI theme conveniently
  * @param overrides - Your custom theme object overrides
- * @param baseTheme - theme to customize
  */
-export function extendTheme(overrides, baseTheme) {
-  if (baseTheme === void 0) {
-    baseTheme = defaultTheme;
-  }
-
+export function extendTheme(overrides) {
   function customizer(source, override, key, object) {
     if (isFunction(source) && Object.prototype.hasOwnProperty.call(object, key)) {
       return function () {
@@ -24,6 +19,6 @@ export function extendTheme(overrides, baseTheme) {
     return undefined;
   }
 
-  return mergeWith({}, baseTheme, overrides, customizer);
+  return mergeWith({}, defaultTheme, overrides, customizer);
 }
 //# sourceMappingURL=extend-theme.js.map
